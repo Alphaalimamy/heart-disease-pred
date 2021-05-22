@@ -1,0 +1,125 @@
+{% extends 'predict/base.html'%}
+{% load widget_tweaks %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br>
+
+<head>
+
+    <style media="screen">
+        a:link {
+            text-decoration: none;
+        }
+
+        .note {
+            margin-top: 10px;
+            text-align: center;
+            height: 50px;
+            background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+            color: #fff;
+            font-weight: bold;
+            line-height: 50px;
+        }
+
+        .form-content {
+            padding: 5%;
+            border: 1px solid #ced4da;
+            margin-bottom: 2%;
+        }
+
+        .form-control {
+            border-radius: 1.5rem;
+        }
+
+        .btnSubmit {
+            border: none;
+            border-radius: 1.5rem;
+            padding: 1%;
+            width: 15%;
+            cursor: pointer;
+            background: #0062cc;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .menu {
+            top: 50px;
+        }
+    </style>
+
+    
+</head>
+
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="container register-form">
+        <div class="form">
+            <div class="note">
+                <p>Add Patient Details to Predict</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4">
+                                    {{ form.name|as_crispy_field }}
+                                </div>
+
+                                <div class="col-4">
+                                    {{ form.age|as_crispy_field }}
+                                </div>
+                                <div class="col-4">
+                                    {{ form.sex|as_crispy_field }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    {{ form.chest_pain_type|as_crispy_field }}
+                                </div>
+
+                                <div class="col-4">
+                                    {{ form.resting_blood_pressure|as_crispy_field }}
+                                </div>
+                                <div class="col-4">
+                                    {{ form.cholesterol|as_crispy_field }}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    {{ form.fasting_blood_sugar|as_crispy_field }}
+                                </div>
+
+                                <div class="col-4">
+                                    {{ form.rest_ecg|as_crispy_field }}
+                                </div>
+                                <div class="col-4">
+                                    {{ form.max_heart_rate_achieved|as_crispy_field }}
+                                </div>
+                                <div class="col-4">
+                                    {{ form.exercise_induced_angina|as_crispy_field }}
+                                </div>
+                                <div class="col-4">
+                                    {{ form.st_depression|as_crispy_field }}
+                                </div>
+                                <div class="col-4">
+                                    {{ form.st_slope|as_crispy_field }}
+                                </div>
+                            </div>
+
+                            <br>
+                            <button type="submit" class="btnSubmit">Predict</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+{% endblock content %}

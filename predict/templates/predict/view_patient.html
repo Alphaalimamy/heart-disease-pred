@@ -1,0 +1,53 @@
+{% extends 'predict/base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+
+    <style media="screen">
+        a:link {
+            text-decoration: none;
+        }
+
+        h6 {
+            text-align: center;
+        }
+
+        .dev-tabl {
+            background-color: blue;
+        }
+    </style>
+</head>
+<br><br><br>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h6 class="panel-title">Patient List</h6>
+        </div>
+        <table class="table table-hover" id="dev-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Profile Picture</th>
+                    <th>Address</th>
+                    <th>Mobile</th>
+                    <th>Symptoms</th>
+
+                </tr>
+            </thead>
+            {% for p in patients %}
+            <tr>
+                <td>{{ p.name }}</td>
+                <td><img src="{{ p.profile_pic.url }}" class="rounded-bottom" alt="Profile Pic" height="40px"
+                        width="40px"" alt=" Profile Pic" height="40px" width="40px" />
+                </td>
+                <td>{{ p.address }}</td>
+                <td>{{ p.patientContact }}</td>
+                <td>{{ p.patientSymptoms}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<br><br><br><br><br><br><br>
+{% endblock content %}

@@ -1,0 +1,210 @@
+{% extends 'predict/base.html '%}
+{% block content %}
+
+<style media="screen">
+    .market-update-block {
+        padding: 2em 2em;
+        background: #999;
+    }
+
+    .market-update-block h3 {
+        color: #fff;
+        font-size: 2.5em;
+        font-family: 'Carrois Gothic', sans-serif;
+    }
+
+    .market-update-block h4 {
+        font-size: 1.2em;
+        color: #fff;
+        margin: 0.3em 0em;
+        font-family: 'Carrois Gothic', sans-serif;
+    }
+
+    .market-update-block p {
+        color: #fff;
+        font-size: 0.8em;
+        line-height: 1.8em;
+    }
+
+    .market-update-block.clr-block-1 {
+        background: blue;
+        margin-right: 0.8em;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -o-transition: 0.5s all;
+    }
+
+    .market-update-block.clr-block-2 {
+        background: red;
+        margin-right: 0.8em;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -o-transition: 0.5s all;
+    }
+
+    .market-update-block.clr-block-3 {
+        background: green;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -o-transition: 0.5s all;
+    }
+
+    .market-update-block.clr-block-1:hover {
+        background: #3C3C3C;
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -o-transition: 0.5s all;
+    }
+
+    .market-update-block.clr-block-2:hover {
+        background: #3C3C3C;
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -o-transition: 0.5s all;
+    }
+
+    .market-update-block.clr-block-3:hover {
+        background: #3C3C3C;
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -o-transition: 0.5s all;
+    }
+
+    .market-update-right i.fa.fa-user-o {
+        font-size: 3em;
+        color: #68AE00;
+        width: 100px;
+        height: 100px;
+        background: #fff;
+        text-align: center;
+        border-radius: 49px;
+        -webkit-border-radius: 49px;
+        -moz-border-radius: 49px;
+        -o-border-radius: 49px;
+        line-height: 1em;
+    }
+
+    .market-update-right i.fa.fa-check-circle-o {
+        font-size: 3em;
+        color: #FC8213;
+        width: 150px;
+        height: 150px;
+        background: #fff;
+        text-align: center;
+        border-radius: 49px;
+        -webkit-border-radius: 49px;
+        -moz-border-radius: 49px;
+        -o-border-radius: 49px;
+        line-height: 1.7em;
+    }
+
+
+
+    .market-update-left {
+        padding: 0px;
+    }
+</style>
+
+<br><br><br>
+<div class="market-updates">
+    <div class="col-md-4 market-update-gd">
+        <div class="market-update-block clr-block-1">
+            <div class="col-md-8 market-update-left">
+                <h3>{{total}}</h3>
+                <h4>Total Number of patients</h4>
+
+            </div>
+            <div class="col-md-4 market-update-right">
+                <i class="fa fa-user-o"></i>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+    <div class="col-md-4 market-update-gd">
+        <div class="market-update-block clr-block-2">
+            <div class="col-md-8 market-update-left">
+                <h3>{{withheartdisease}}</h3>
+                <h4>Patients with heart disease</h4>
+
+            </div>
+            <div class="col-md-4 market-update-right">
+                <i class="fa fa-user-o"></i>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-4 market-update-gd">
+        <div class="market-update-block clr-block-3">
+            <div class="col-md-8 market-update-left">
+                <h3>{{withoutheartdisease}}</h3>
+                <h4>Patient with No heart disease</h4>
+
+            </div>
+            <div class="col-md-4 market-update-right">
+                <i class="fa fa-user-o"></i>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<hr style="border: red;width:12px">
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h6 class="panel-title">Recent Five Records</h6>
+        </div>
+        <table class="table table-hover" id="dev-table">
+            <thead class="table text-center">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">CPT</th>
+                    <th scope="col">RBP</th>
+                    <th scope="col">Cholesterol</th>
+                    <th scope="col">FBS</th>
+                    <th scope="col">RE</th>
+                    <th scope="col">MHRO</th>
+                    <th scope="col">EIA</th>
+                    <th scope="col">STD</th>
+                    <th scope="col">STS</th>
+                    <th scope="col">RESULT</th>
+                </tr>
+            </thead>
+            {% for d in data %}
+            <tr>
+                <td> {{ d.name }}</td>
+                <td> {{ d.age }}</td>
+                <td> {{ d.sex }}</td>
+                <td> {{ d.chest_pain_type }}</td>
+                <td> {{ d.resting_blood_pressure }}</td>
+                <td> {{ d.cholesterol }}</td>
+                <td> {{ d.fasting_blood_sugar }}</td>
+                <td> {{ d.rest_ecg }}</td>
+                <td> {{ d.max_heart_rate_achieved }}</td>
+                <td> {{ d.exercise_induced_angina }}</td>
+                <td> {{ d.st_depression }}</td>
+                <td> {{ d.st_slope }}</td>
+                <td> {{ d.target }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+
+<br> {% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'predict/base.html' %}
+{% load static %}
+<style>
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    a:hover {
+        color: white;
+        text-decoration: none;
+        background-color: violet;
+    }
+
+    .dev-table {
+        color: white;
+    }
+
+    td {
+        color: white;
+    }
+
+    .row {
+        margin: 2px;
+    }
+</style>
+{% block content %}
+<br><br><br><br>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="btn btn-warning"><a href="{% url 'csv'%}">Download CSV</a></div>
+        <div class="card py-30">
+
+            <table class="table table-hover">
+                <thead class="table bg-primary">
+                    <tr class="text-center">
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">CPT</th>
+                        <th scope="col">RBP</th>
+                        <th scope="col">Cholesterol</th>
+                        <th scope="col">FBS</th>
+                        <th scope="col">RE</th>
+                        <th scope="col">MHRO</th>
+                        <th scope="col">EIA</th>
+                        <th scope="col">STD</th>
+                        <th scope="col">STS</th>
+                        <th scope="col">RESULT</th>
+                    </tr>
+                </thead>
+                {% for d in data %}
+                <tr>
+                    <td> {{ d.name }}</td>
+                    <td> {{ d.age }}</td>
+                    <td> {{ d.sex }}</td>
+                    <td> {{ d.chest_pain_type }}</td>
+                    <td> {{ d.resting_blood_pressure }}</td>
+                    <td> {{ d.cholesterol }}</td>
+                    <td> {{ d.fasting_blood_sugar }}</td>
+                    <td> {{ d.rest_ecg }}</td>
+                    <td> {{ d.max_heart_rate_achieved }}</td>
+                    <td> {{ d.exercise_induced_angina }}</td>
+                    <td> {{ d.st_depression }}</td>
+                    <td> {{ d.st_slope }}</td>
+                    <td> {{ d.target }}</td>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br>
+
+{% endblock content %}

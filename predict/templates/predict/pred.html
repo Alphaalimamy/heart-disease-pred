@@ -1,0 +1,75 @@
+{% extends 'predict/base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+
+    <style media="screen">
+        a:link {
+            text-decoration: none;
+        }
+
+        h6 {
+            text-align: center;
+        }
+
+        .dev-tabl {
+            background-color: blue;
+        }
+    </style>
+</head>
+<br><br><br><br><br>
+<div class="container">
+
+    <div class="row mb-2">
+        <div class="col-md-2">
+            <div class="card">
+                <button type="button" class="btn btn-outline-primary"><a href="{% url 'homepage'%}">Home</a></button>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-left">
+                <p>Patient Name: {{p.name}}</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-left">
+                <p>Final Model Result: {{p.name}} has {{p.target}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h6 class="panel-title">Patient List</h6>
+        </div>
+        <table class="table table-hover" id="dev-table">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Accuracy</th>
+                    <th>Prediction</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <td>Random Forest</td>
+                <td>{{ p.rf }}</td>
+                <td>{{ p.rf_ped}}</td>
+            </tr>
+            <tr>
+                <td>Decision Tree</td>
+                <td>{{ p.dt }}</td>
+                <td>{{ p.dt_pred}}</td>
+            </tr>
+
+            <tr>
+                <td>Neural Network</td>
+                <td>{{ p.ml }}</td>
+                <td>{{ p.ml_pred}}</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+<br>
+{% endblock content %}

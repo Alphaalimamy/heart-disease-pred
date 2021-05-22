@@ -1,0 +1,102 @@
+{% extends 'predict/base.html '%}
+
+{% load static %}
+{% block content %}
+
+<style>
+    div.polaroid {
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-bottom: 25px;
+    }
+
+    div.container {
+        text-align: center;
+        padding: 10px 20px;
+    }
+
+    p {
+        font-style: italic;
+        font-weight: bold;
+    }
+</style>
+<br><br><br>
+
+<div class="row">
+    <div class="col-md-12 w3-container w3-center w3-animate-right">
+        <div class="card">
+            <div class="card-body ">
+
+                <div class="polaroid">
+
+                    <div class="container">
+                        <img src="{% static 'images/project.png'%}" alt="heart" style="width:100%" height="300px">
+                        <p class="text-justify">
+
+                            Heart disease is also called cardiovascular disease, which continuously
+                            rises
+                            every day. In the 2016 WHO
+                            survey, an estimated 17 million people die yearly from cardiovascular diseases (CVDs)
+                            worldwide,
+                            more so from heart and
+                            stroke. The prevalent symptoms and health behaviors that lead at an early stage to the
+                            development of cardiovascular
+                            diseases must be established. However, different studies are performed to assess
+                            cardiovascular
+                            diseases. Blood
+                            pressure, blood sugar, cholesterol etc. are some of these measures.
+                        </p>
+                        <p class="text-justify">A category of diseases covering the blood vessels (arteries and veins)
+                            and the
+                            heart are
+                            cardiovascular diseases. There
+                            is a high and troubling rate of cardiovascular disease in many countries around the world at
+                            present. According to WHO,
+                            among men and women over sixty-five years of age, cardiovascular disorders have been a
+                            principal
+                            source of debilitation
+                            and death worldwide. Cardiovascular disease is presently seen as a "second epidemic," in
+                            many
+                            nations, replacing
+                            infectious diseases as the leading cause of death.
+                            Cardiovascular disorders were initially viewed as a health concern intended for developing
+                            countries. It is still a
+                            significant health problem today for developed countries as well. In reality, for developing
+                            countries, it is more
+                            surprising than inadequate health care. Cardiovascular disease has been believed to be a
+                            disease
+                            reserved for men in the
+                            recent past, but lately it is also considered to be one of women's killer diseases.</p>
+                        <p class="text-justify">
+                            By diagnosing cardiovascular disease by medical assessment, history and physical
+                            examination,
+                            and
+                            early diagnosis of
+                            heart disease, the mortality rate may also be reduced. One of the finest approaches to
+                            cardiovascular disease diagnosis
+                            is echocardiography. A painless echocardiography test, or echo test. It uses sound waves to
+                            create
+                            representations of
+                            the heart. The echocardiography test collects data relating to the heart's shape and scale.
+                            It
+                            also
+                            dictates how well the heart and valve chambers function, too. This test is also used for the
+                            early
+                            identification of children and infants with cardiovascular disease. Echocardiography is
+                            often used
+                            to identify
+                            areas that do not usually contract in the muscle of the heart due to inadequate blood flow
+                            or heart
+                            attack injury.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
